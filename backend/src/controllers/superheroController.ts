@@ -1,5 +1,6 @@
-import { heroesSortedByHumility, newHero } from '../models/superheroModel';
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
+
+import { heroesSortedByHumility, newHero } from "../models/superheroModel";
 
 // GET (Superhero list sorted by humility score)
 export const getHeroes = (req: Request, res: Response) => {
@@ -14,9 +15,9 @@ export const getHeroes = (req: Request, res: Response) => {
 };
 
 // POST (Create a new superhero)
-export const createHero = (req: Request, res: Response) => {
+export const addHero = (req: Request, res: Response) => {
   const { name, superpower, humilityScore } = req.body;
 
   newHero({ name, superpower, humilityScore });
   res.status(201).json({ message: `New Superhero ${name}!` });
-}
+};

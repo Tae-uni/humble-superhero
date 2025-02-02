@@ -1,10 +1,11 @@
 import express from "express";
 
-import { createHero, getHeroes } from "../controllers/superheroController";
+import { addHero, getHeroes } from "../controllers/superheroController";
+import { validateSuperhero } from "../middlewares/validateSuperhero";
 
 const router = express.Router();
 
 router.get('/superheroes', getHeroes);
-router.post('/superheroes', createHero);
+router.post('/superheroes', validateSuperhero, addHero);
 
 export default router;
