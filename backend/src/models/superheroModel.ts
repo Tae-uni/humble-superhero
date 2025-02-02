@@ -14,4 +14,9 @@ export const heroesSortedByHumility = (): Superhero[] => {
   return superheroes.sort((a, b) => b.humilityScore - a.humilityScore);
 };
 
+// Check if a superhero name exists
+export const isHeroExist = (name: string): boolean => {
+  return superheroes.some(hero => hero.name.toLowerCase() === name.toLowerCase());
+};
+
 /* Further idea: add a removeHero function to delete a superhero from the list */
