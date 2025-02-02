@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { z } from "zod";
 
 // Superhero validation schema with Zod
+// - Ensures humility score is an integer between 1 and 10
 const superheroSchema = z.object({
   name: z.string()
     .min(2, "Name must be at least 2 characters")
@@ -15,7 +16,8 @@ const superheroSchema = z.object({
     .max(10, "The Humility score cannot be higher than 10"),
 });
 
-// Validate the superhero data middleware
+// Middleware for Validate the superhero data 
+// - Ensures valid input using Zod
 export const validateSuperhero = (req: Request, res: Response, next: NextFunction) => {
   const validationResult = superheroSchema.safeParse(req.body);
 

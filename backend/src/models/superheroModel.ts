@@ -1,15 +1,17 @@
-import { Superhero } from '../types/superhero';
+import { Superhero } from "../types/superhero";
 
-// In-memory storage of superheroes
+// In-memory storage of superheros
 let superheroes: Superhero[] = [];
 
-export const newHero = (hero: Superhero) => {
+// Add a new superhero to the list
+// - No db, so the data is stored in-memory
+export const newHero = (hero: Superhero): void => {
   superheroes.push(hero);
 };
 
-// Return all superheroes sorted by humility score
+// Return all superheros sorted by humility score (DESC)
 export const heroesSortedByHumility = (): Superhero[] => {
-  return [...superheroes].sort((a, b) => b.humilityScore - a.humilityScore);
+  return superheroes.sort((a, b) => b.humilityScore - a.humilityScore);
 };
 
 /* Further idea: add a removeHero function to delete a superhero from the list */

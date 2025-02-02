@@ -1,7 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import { ZodError } from "zod";
 
-// Global Error handler middleware
+//  Global error handling middleware
+//  - Handles all errors, including validation errors
+//  - Returns a JSON response with the details
 export const errorHandler = (
   error: any,
   req: Request,
