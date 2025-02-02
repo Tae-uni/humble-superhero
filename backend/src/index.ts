@@ -20,6 +20,10 @@ app.use((error: any, req: express.Request, res: express.Response, next: express.
 
 const PORT = 3000;
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server running : http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, () => {
+    console.log(`Server running : http://localhost:${PORT}`);
+  });
+}
+
+export { app };

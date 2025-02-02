@@ -11,7 +11,7 @@ export const getHeroes = (req: Request, res: Response) => {
     return;
   }
 
-  res.json(heroes);
+  res.status(200).json({ heroes });
 };
 
 export const addHero = (req: Request, res: Response): void => {
