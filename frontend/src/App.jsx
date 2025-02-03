@@ -1,10 +1,11 @@
 import './App.css'
+import { SuperheroList } from './componenets/SuperheroList'
 
 function App() {
 
   return (
     <>
-      Test
+      <SuperheroList />
     </>
   )
 }
