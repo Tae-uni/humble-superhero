@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { SuperheroForm } from './SuperheroForm';
 
 const API_URL = 'http://localhost:3000/api/superheroes';
 
@@ -6,7 +7,7 @@ export const SuperheroList = () => {
   const [heroes, setHeroes] = useState([]);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  const fetchHeroes = () => {
     fetch(API_URL, {
       method: 'GET',
       headers: {
@@ -21,17 +22,24 @@ export const SuperheroList = () => {
         setHeroes(data.heroes || []);
       })
       .catch((err) => setError(err.message));
+  }
+
+  useEffect(() => {
+    fetchHeroes();
   }, []);
 
   return (
     <div className="container">
       <h1>Humble Superheroes</h1>
       {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
+
+      <SuperheroForm onHeroAdded={fetchHeroes} />
+
       {heroes.length > 0 ? (
         <ul>
           {heroes.map((hero, index) => (
             <li key={index}>
-              <strong>{hero.name}</strong> - {hero.superpower}
+              <strong>{hero.name}</strong> - {hero.superpower} - {hero.humilityScore}
             </li>
           ))}
         </ul>
