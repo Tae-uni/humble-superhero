@@ -1,8 +1,7 @@
 import './App.css'
-import { SuperheroList } from './componenets/SuperheroList'
+import { SuperheroList } from './components/SuperheroList'
 
 function App() {
-
   return (
     <>
       <SuperheroList />

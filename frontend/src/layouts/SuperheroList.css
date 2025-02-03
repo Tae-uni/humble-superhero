@@ -1,0 +1,41 @@
+.hero-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.hero-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 420px;
+  padding: 10px;
+  font-weight: bold;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+.hero-item {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.hero-list {
+  list-style: none;
+  padding: 0;
+  width: 80%;
+  max-width: 400px;
+  margin-top: 5px;
+}

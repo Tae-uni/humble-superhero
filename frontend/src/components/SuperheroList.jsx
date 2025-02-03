@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { SuperheroForm } from './SuperheroForm';
 
+import "../layouts/SuperheroList.css";
+
 const API_URL = 'http://localhost:3000/api/superheroes';
 
 export const SuperheroList = () => {
@@ -35,15 +37,26 @@ export const SuperheroList = () => {
 
       <SuperheroForm onHeroAdded={fetchHeroes} />
 
-      {heroes.length > 0 ? (
-        <ul>
-          {heroes.map((hero, index) => (
-            <li key={index}>
-              <strong>{hero.name}</strong> - {hero.superpower} - {hero.humilityScore}
-            </li>
-          ))}
+      <h2>Superheroes</h2>
+      <div className="hero-container">
+        <div className="hero-header">
+          <span>Name</span>
+          <span>Superpower</span>
+          <span>Humility Score</span>
+        </div>
+
+        <ul className='hero-list'>
+          {heroes.length > 0 ? (
+            heroes.map((hero, index) => (
+              <li key={index} className='hero-item'>
+                <span>{hero.name}</span>
+                <span>{hero.superpower}</span>
+                <span>{hero.humilityScore}</span>
+              </li>
+            ))
+          ) : !error && <p>An expected error occurred.</p>}
         </ul>
-      ) : !error && <p>An expected error occurred.</p>}
+      </div>
     </div>
   )
 }
