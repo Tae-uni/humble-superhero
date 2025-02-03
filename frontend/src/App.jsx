@@ -1,5 +1,4 @@
-import './App.css'
-import { SuperheroList } from './components/SuperheroList'
+import { SuperheroList } from './components/SuperheroList';
 
 function App() {
   return (
@@ -9,4 +8,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
