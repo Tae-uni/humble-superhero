@@ -3,12 +3,15 @@ import cors from "cors";
 
 import superheroRoutes from "./routes/superheroRoutes";
 import { errorHandler } from "./middlewares/errorHandler";
+import { setupSwagger } from "./config/swagger";
 
 const app = express();
 
 // Global middleware
 app.use(express.json());
 app.use(cors());
+
+setupSwagger(app);
 
 // Routes
 app.use("/api", superheroRoutes);
